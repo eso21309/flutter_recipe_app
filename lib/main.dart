@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: "Pretendard",
+      ),
       home: RecipePage(),
     );
   }
@@ -42,15 +45,17 @@ class RecipePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          RecipeTitle(),
-          RecipeMenu(),
-          RecipeListItem(),
-          RecipeListItem(),
-          RecipeListItem(),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: ListView(
+          children: [
+            RecipeTitle(),
+            RecipeMenu(),
+            RecipeListItem('assets/images/coffee.jpg', "Coffee"),
+            RecipeListItem('assets/images/burger.jpg', "Burger"),
+            RecipeListItem('assets/images/pizza.jpg', "Pizza"),
+          ],
+        ),
       ),
     );
   }
